@@ -8,20 +8,23 @@ export type Listing = {
 export const listings: Listing[] = [
   {
     id: "1",
-    title: "Community Garden",
-    address: "123 Main Street",
-    description: "A neighborhood garden where residents can grow plants and connect with others.",
+    title: "Listings",
+    address: "Neighborhood Resources",
+    description:
+      "Discover useful places, services, and resources available in your neighborhood.",
   },
   {
     id: "2",
-    title: "Local Food Pantry",
-    address: "456 Oak Avenue",
-    description: "A local resource providing food assistance to families in the neighborhood.",
+    title: "Neighborhood Sponsors",
+    address: "Local Community Partners",
+    description:
+      "Learn about local businesses and organizations that support the neighborhood.",
   },
   {
     id: "3",
-    title: "Neighborhood Library",
-    address: "789 Pine Road",
-    description: "A community library offering books, resources, and local events.",
+    title: "Voice Help",
+    address: "Neighborhood Assistance",
+    description:
+      "Get help finding neighborhood information and resources through voice assistance.",
   },
 ];
