@@ -1,21 +1,32 @@
-import ListingGrid from "@/components/ListingGrid";
+import PropertyListingGrid from "../components/PropertyListingGrid";
+import SearchFilters from "../components/SearchFilters";
+import SponsorBanner from "../components/SponsorBanner";
+import type { Sponsor } from "../types";
+
+const sponsor: Sponsor = {
+  id: "sunshine-mortgage",
+  businessName: "Sunshine Mortgage",
+  message: "Explore financing options for your next home.",
+  websiteUrl: "https://example.com",
+};
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-gray-50 px-6 py-12">
-      <div className="mx-auto max-w-5xl">
-        <header className="mb-10 text-center">
-          <h1 className="text-4xl font-bold text-gray-900">
-            Neighborhood Listing Platform
-          </h1>
+    <main className="mx-auto max-w-7xl p-4">
+      <h1 className="text-3xl font-bold">
+        Pacific Properties
+      </h1>
 
-          <p className="mt-4 text-lg text-gray-600">
-            Discover useful places, services, and resources in your
-            neighborhood.
-          </p>
-        </header>
+      <div className="mt-6">
+        <SearchFilters />
+      </div>
 
-        <ListingGrid />
+      <div className="mt-8">
+        <PropertyListingGrid />
+      </div>
+
+      <div className="mt-8">
+        <SponsorBanner sponsor={sponsor} />
       </div>
     </main>
   );
