@@ -1,3 +1,4 @@
+import Link from "next/link";
 export default function Header() {
   return (
     <header className="border-b bg-white">
@@ -5,24 +6,24 @@ export default function Header() {
         aria-label="Main navigation"
         className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4"
       >
-        <a href="/" className="text-xl font-bold text-gray-900">
+        <Link href="/" className="text-xl font-bold text-gray-900">
           Neighborhood Listings
-        </a>
+        </Link>
 
         <div className="flex gap-6">
-          <a
+          <Link
             href="/"
             className="text-gray-600 hover:text-gray-900"
           >
             Home
-          </a>
+          </Link>
 
-          <a
+          <Link
             href="/listings"
             className="text-gray-600 hover:text-gray-900"
           >
             Listings
-          </a>
+          </Link>
         </div>
       </nav>
     </header>
