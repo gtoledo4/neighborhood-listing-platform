@@ -17,3 +17,8 @@ export interface Sponsor {
   message: string;
   websiteUrl: string;
 }
+
+export type {
+  PropertyContract,
+  PropertySponsor,
+} from "./property-contract";
