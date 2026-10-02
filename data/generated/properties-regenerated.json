@@ -1,0 +1,124 @@
+[
+  {
+    "property_id": "PROP-CA-101",
+    "address": "4820 Willow Creek Way",
+    "city": "Sacramento",
+    "state": "CA",
+    "zip_code": "95825",
+    "price": 625000,
+    "bedrooms": 3,
+    "bathrooms": 2.5,
+    "square_feet": 1950,
+    "amenities": [
+      "Attached Garage",
+      "Private Backyard",
+      "Patio",
+      "Central Air Conditioning"
+    ],
+    "local_sponsors": [
+      {
+        "sponsor_id": "SPON-201",
+        "name": "Summit Valley Mortgage",
+        "category": "mortgage"
+      }
+    ]
+  },
+  {
+    "property_id": "PROP-CA-102",
+    "address": "735 Market View Boulevard, Apt 4B",
+    "city": "San Francisco",
+    "state": "CA",
+    "zip_code": "94103",
+    "price": 890000,
+    "bedrooms": 2,
+    "bathrooms": 2.0,
+    "square_feet": 1120,
+    "amenities": [
+      "Covered Parking",
+      "Private Balcony",
+      "Elevator Access",
+      "Fitness Center"
+    ],
+    "local_sponsors": [
+      {
+        "sponsor_id": "SPON-202",
+        "name": "Bay City Relocation & Moving",
+        "category": "moving"
+      }
+    ]
+  },
+  {
+    "property_id": "PROP-CA-103",
+    "address": "1284 Arroyo Vista Drive",
+    "city": "Pasadena",
+    "state": "CA",
+    "zip_code": "91105",
+    "price": 1350000,
+    "bedrooms": 4,
+    "bathrooms": 3.0,
+    "square_feet": 2680,
+    "amenities": [
+      "In-Ground Pool",
+      "Updated Gourmet Kitchen",
+      "Granite Countertops",
+      "Fenced Yard",
+      "Two-Car Garage"
+    ],
+    "local_sponsors": [
+      {
+        "sponsor_id": "SPON-203",
+        "name": "Heritage Home Remodeling",
+        "category": "home_services"
+      }
+    ]
+  },
+  {
+    "property_id": "PROP-CA-104",
+    "address": "512 University Terrace Lane, Unit 203",
+    "city": "Berkeley",
+    "state": "CA",
+    "zip_code": "94704",
+    "price": 540000,
+    "bedrooms": 1,
+    "bathrooms": 1.0,
+    "square_feet": 710,
+    "amenities": [
+      "In-Unit Laundry",
+      "Walk-In Closet",
+      "Secured Access",
+      "Steps to Retail"
+    ],
+    "local_sponsors": [
+      {
+        "sponsor_id": "SPON-204",
+        "name": "Golden Gate Assurance Group",
+        "category": "insurance"
+      }
+    ]
+  },
+  {
+    "property_id": "PROP-CA-105",
+    "address": "3104 Meadowood Grove Circle",
+    "city": "Irvine",
+    "state": "CA",
+    "zip_code": "92618",
+    "price": 795000,
+    "bedrooms": 3,
+    "bathrooms": 2.5,
+    "square_feet": 1780,
+    "amenities": [
+      "Two-Car Attached Garage",
+      "Community Pool",
+      "Clubhouse Access",
+      "Playground",
+      "Private Patio"
+    ],
+    "local_sponsors": [
+      {
+        "sponsor_id": "SPON-205",
+        "name": "Crestview Realty Advisors",
+        "category": "realtor"
+      }
+    ]
+  }
+]
