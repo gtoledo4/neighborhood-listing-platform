@@ -4,9 +4,6 @@ Created the App Shell Architect prompt requesting Next.js, TypeScript, Tailwind,
 
 ## Normalization review
 
-ChatGPT EDU and Gemini were asked to identify normalization concerns with the property data model, especially the amenities field.
-Both identified inconsistent amenity names and difficulty searching or filtering free-text amenities as normalization concerns. Both also identified a many-to-many Amenities/PropertyAmenities design as the most normalized approach for a relational production database.
-
+I asked ChatGPT EDU and Gemini to identify normalization concerns with the property data model, especially the amenities field. Both identified inconsistent amenity names and difficulty searching or filtering free-text amenities as normalization concerns. Both also identified a many-to-many Amenities/PropertyAmenities design as the most normalized approach for a relational production database.
 Decision:
-For the current project, amenities will remain an array of controlled string values. This keeps the JSON contract simple while preventing inconsistent free-text values. If the application later moves to a relational database with more advanced filtering or amenity metadata, amenities can be normalized into an Amenities table and a PropertyAmenities join table.
-Free text may still be appropriate for optional descriptive details, but not for the standardized amenity values.
+For my current project, amenities will remain an array of controlled string values. This keeps the JSON contract simple while preventing inconsistent free-text values. Free text may still be appropriate for optional descriptive details, but not for the standardized amenity values.
