@@ -1,19 +1,16 @@
 [
   {
     "property_id": "PROP-CA-101",
-    "address": "4820 Willow Creek Way",
-    "city": "Sacramento",
+    "address": "12500 Huston St Apt 104",
+    "city": "Valley Village",
     "state": "CA",
-    "zip_code": "95825",
-    "price": 625000,
-    "bedrooms": 3,
-    "bathrooms": 2.5,
-    "square_feet": 1950,
+    "zip_code": "91607",
+    "price": 649000,
+    "bedrooms": 2,
+    "bathrooms": 2,
+    "square_feet": 1137,
     "amenities": [
-      "Attached Garage",
-      "Private Backyard",
-      "Patio",
-      "Central Air Conditioning"
+      "Condo"
     ],
     "local_sponsors": [
       {
@@ -25,19 +22,16 @@
   },
   {
     "property_id": "PROP-CA-102",
-    "address": "735 Market View Boulevard, Apt 4B",
-    "city": "San Francisco",
-    "state": "CA",
-    "zip_code": "94103",
-    "price": 890000,
-    "bedrooms": 2,
-    "bathrooms": 2.0,
-    "square_feet": 1120,
+    "address": "1150 Santa Rosa Blvd Unit 322",
+    "city": "Fort Walton Beach",
+    "state": "FL",
+    "zip_code": "32548",
+    "price": 580000,
+    "bedrooms": 3,
+    "bathrooms": 2,
+    "square_feet": 1202,
     "amenities": [
-      "Covered Parking",
-      "Private Balcony",
-      "Elevator Access",
-      "Fitness Center"
+      "Condo"
     ],
     "local_sponsors": [
       {
@@ -49,20 +43,16 @@
   },
   {
     "property_id": "PROP-CA-103",
-    "address": "1284 Arroyo Vista Drive",
-    "city": "Pasadena",
-    "state": "CA",
-    "zip_code": "91105",
-    "price": 1350000,
+    "address": "301 Summit Dr",
+    "city": "Destin",
+    "state": "FL",
+    "zip_code": "32541",
+    "price": 599900,
     "bedrooms": 4,
-    "bathrooms": 3.0,
-    "square_feet": 2680,
+    "bathrooms": 3,
+    "square_feet": 2293,
     "amenities": [
-      "In-Ground Pool",
-      "Updated Gourmet Kitchen",
-      "Granite Countertops",
-      "Fenced Yard",
-      "Two-Car Garage"
+      "House"
     ],
     "local_sponsors": [
       {
@@ -74,19 +64,16 @@
   },
   {
     "property_id": "PROP-CA-104",
-    "address": "512 University Terrace Lane, Unit 203",
-    "city": "Berkeley",
+    "address": "603 N Las Palmas Ave",
+    "city": "Los Angeles",
     "state": "CA",
-    "zip_code": "94704",
-    "price": 540000,
-    "bedrooms": 1,
-    "bathrooms": 1.0,
-    "square_feet": 710,
+    "zip_code": "90004",
+    "price": 3800000,
+    "bedrooms": 5,
+    "bathrooms": 5.5,
+    "square_feet": 4800,
     "amenities": [
-      "In-Unit Laundry",
-      "Walk-In Closet",
-      "Secured Access",
-      "Steps to Retail"
+      "House"
     ],
     "local_sponsors": [
       {
@@ -98,20 +85,16 @@
   },
   {
     "property_id": "PROP-CA-105",
-    "address": "3104 Meadowood Grove Circle",
-    "city": "Irvine",
+    "address": "15012 Wyandotte St",
+    "city": "Los Angeles",
     "state": "CA",
-    "zip_code": "92618",
-    "price": 795000,
-    "bedrooms": 3,
-    "bathrooms": 2.5,
-    "square_feet": 1780,
+    "zip_code": "91405",
+    "price": 1550000,
+    "bedrooms": 6,
+    "bathrooms": 6,
+    "square_feet": 3131,
     "amenities": [
-      "Two-Car Attached Garage",
-      "Community Pool",
-      "Clubhouse Access",
-      "Playground",
-      "Private Patio"
+      "House"
     ],
     "local_sponsors": [
       {
