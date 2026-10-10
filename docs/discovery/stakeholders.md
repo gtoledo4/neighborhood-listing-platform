@@ -1,6 +1,4 @@
-# Stakeholder Discovery
-Research status: Simulated stakeholder discovery no real interviews conducted.
-
+# Smulated Stakeholder Discovery
 ## Stakeholder 1: Property Professional
 ### Known facts
 1. The platform displays property listings.

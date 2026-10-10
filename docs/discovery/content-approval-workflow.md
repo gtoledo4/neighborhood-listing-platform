@@ -1,6 +1,4 @@
 # Content Approval Workflow
-This is a proposed workflow based on the project requirements and simulated discovery notes. It does not establish a real organization's approval policy. This workflow describes how property listings and sponsor information should be checked before publication on the Neighborhood Listing Platform.
-
 ## 1. Property Listing Approval
 1. Submit: A property listing is submitted or updated.
 2. Validate: The listing is checked against the property data schema for required fields, valid formats, and allowed values.

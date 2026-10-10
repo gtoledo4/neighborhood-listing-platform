@@ -1,6 +1,4 @@
-# Simulated Stakeholder Interview Notes
-All participants, backgrounds, and responses are invented for this class exercise. No real interviews were conducted.  
-
+# Simulated Interview Notes
 ## Simulated Interview: Maria Torres real estate profesional (Fictional)
 ### Question 1: Can you describe your current process for creating and updating property listings?
 When a property is ready to be listed, I gather the basic information, such as the address, price, number of bedrooms and bathrooms, square footage, available features and amenities. I enter those details into our listing system and check them before the listing is posted. If something changes, like the price or availability, we need to make sure the information is updated everywhere it appears. Our goal is to keep everything consistent and that can take time.
