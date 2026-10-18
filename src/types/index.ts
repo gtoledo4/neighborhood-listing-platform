@@ -8,7 +8,7 @@ export interface Property {
   squareFeet: number;
   imageUrl: string;
   imageAlt: string;
-  detailsUrl: string;
+  detailsUrl?: string;
 }
 
 export interface Sponsor {

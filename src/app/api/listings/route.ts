@@ -1,7 +1,13 @@
+
+import Ajv2020 from 'ajv/dist/2020';
+import createPropertySchema from '@/schemas/create-property.schema.json';
 import { getAuthenticatedUser } from '@/lib/supabase/auth';
 import { createSupabaseServerClient } from '@/lib/server';
 import { NextResponse } from 'next/server';
 import { supabaseAdmin } from '@/lib/supabase/admin';
+
+const ajv = new Ajv2020({ allErrors: true });
+const validateCreateProperty = ajv.compile(createPropertySchema);
 
 export async function GET() {
   try {
@@ -17,10 +23,7 @@ export async function GET() {
       // Keep database details in server logs, not in the API response.
       console.error('Failed to fetch listings:', error.message);
 
-      return NextResponse.json(
-        { error: 'Unable to load listings.' },
-        { status: 500 },
-      );
+      return NextResponse.json({ listings: data });
     }
 
     return NextResponse.json({ listings: data });
@@ -74,6 +77,13 @@ export async function POST(request: Request) {
     ) {
       return NextResponse.json(
         { error: 'Request body must be a JSON object.' },
+        { status: 400 },
+      );
+    }
+
+    if (!validateCreateProperty(body)) {
+      return NextResponse.json(
+        { error: 'Invalid property data.' },
         { status: 400 },
       );
     }
@@ -184,7 +194,10 @@ export async function POST(request: Request) {
       console.error('Failed to create property:', error.message);
 
       return NextResponse.json(
-        { error: 'Unable to create property. Check the submitted data and permissions.' },
+        {
+          error:
+            'Unable to create property. Check the submitted data and permissions.',
+        },
         { status: 400 },
       );
     }

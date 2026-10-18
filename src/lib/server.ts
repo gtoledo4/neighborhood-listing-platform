@@ -1,31 +1,26 @@
-
 import 'server-only';
 
 import { createClient } from '@supabase/supabase-js';
 
 export function createSupabaseServerClient(accessToken?: string) {
-  const url = process.env.SUPABASE_URL;
+  const supabaseUrl = process.env.SUPABASE_URL;
   const anonKey = process.env.SUPABASE_ANON_KEY;
 
-  if (!url || !anonKey) {
-    throw new Error(
-      'Missing SUPABASE_URL or SUPABASE_ANON_KEY environment variable.',
-    );
+  if (!supabaseUrl || !anonKey) {
+    throw new Error('Missing Supabase client configuration');
   }
 
-  return createClient(url, anonKey, {
-    auth: {
-      autoRefreshToken: false,
-      persistSession: false,
-    },
-    ...(accessToken
+  return createClient(supabaseUrl, anonKey, {
+    global: accessToken
       ? {
-          global: {
-            headers: {
-              Authorization: `Bearer ${accessToken}`,
-            },
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
           },
         }
-      : {}),
+      : undefined,
+    auth: {
+      persistSession: false,
+      autoRefreshToken: false,
+    },
   });
 }
