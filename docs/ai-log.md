@@ -37,3 +37,24 @@ The input contained fictional profiles and invented responses for Maria Torres, 
 
 ### Verification
 Compared the generated analysis against the source notes.
+
+## Database Design
+Google AI Studio, with ChatGPT used to review the proposed design.
+- Documented an entity-relationship diagram
+- Identified five entities
+- Generated and reviewed proposed PostgreSQL DDL for the five tables
+- Added proposed primary keys, foreign keys, uniqueness rules, validation constraints, timestamp defaults and triggers, and query indexes
+- Enabled row-level security in the proposed SQL without adding permissive policies
+AI generated the initial diagram and SQL proposal. The design was reviewed step by step.
+
+### Database Migration and Verification
+- Migration file: supabase/migrations/202610140001_create_neighborhood_schema.sql
+- Prepared and reviewed the PostgreSQL migration for the five database tables, foreign keys, constraints, timestamp-update triggers, indexes, and row-level security.
+- Applied the migration to the Supabase database.
+- Enabled row-level security and configured policies for property access.
+- Tested authenticated property creation; a valid property was created successfully with draft status.
+- Confirmed unauthenticated property creation is rejected.
+- Tested invalid property data, including negative prices, invalid state codes, malformed ZIP codes, fractional bedroom counts, and invalid amenities; each request was rejected with an appropriate validation error.
+- Fixed a database permission issue by granting the authenticated role table-level INSERT permission while retaining row-level security.
+- Verified that TypeScript checks and the production build pass. ESLint completes with one existing image-optimization warning in src/components/PropertyCard.tsx.
+- Test records used during verification are synthetic development data.
