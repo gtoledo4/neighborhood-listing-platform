@@ -9,7 +9,7 @@ export const properties: Property[] = [
     bedrooms: 6,
     bathrooms: 8.5,
     squareFeet: 8472,
-    imageUrl: "/images/minorca-house.jpg",
+    imageUrl: "https://ssl.cdn-redfin.com/photo/rent/c0a9827a-f094-4db9-9e9e-46042f700218/bigphoto/0_1.jpg",
     imageAlt:
       "Exterior of the luxury estate at 1221 Minorca Drive",
     detailsUrl:
@@ -23,7 +23,7 @@ export const properties: Property[] = [
     bedrooms: 4,
     bathrooms: 3.5,
     squareFeet: 2952,
-    imageUrl: "/images/paseo-de-oro-house.jpg",
+    imageUrl: "https://ap.rdcpix.com/3ad986602407f35bd9765be223bc3223l-m2242905505rd-w1280_h960.webp",
     imageAlt:
       "Exterior view of the home at 1492 Paseo De Oro",
     detailsUrl:
@@ -37,7 +37,7 @@ export const properties: Property[] = [
     bedrooms: 8,
     bathrooms: 8.5,
     squareFeet: 16773,
-    imageUrl: "/images/amalfi-house.jpg",
+    imageUrl: "https://ap.rdcpix.com/9971354b2cdea5f2ac65630369664d41l-m2944691948rd-w1280_h960.webp",
     imageAlt:
       "Exterior and landscaped grounds of the estate at 1550 Amalfi Drive",
     detailsUrl:

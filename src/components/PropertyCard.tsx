@@ -33,13 +33,14 @@ export default function PropertyCard({
           <li>{property.bathrooms} bathrooms</li>
           <li>{property.squareFeet.toLocaleString()} sq. ft.</li>
         </ul>
-
-        <a
-          href={property.detailsUrl}
-          className="mt-4 inline-block rounded bg-blue-700 px-4 py-2 text-white hover:bg-blue-800 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-blue-300"
-        >
-          View details for {property.title}
-        </a>
+        {property.detailsUrl && (
+          <a
+            href={property.detailsUrl}
+            className="mt-4 inline-block rounded bg-blue-700 px-4 py-2 text-white hover:bg-blue-800 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-blue-300"
+          >
+            View details for {property.title}
+          </a>
+        )}
       </div>
     </article>
   );

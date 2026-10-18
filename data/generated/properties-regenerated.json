@@ -1,0 +1,107 @@
+[
+  {
+    "property_id": "PROP-CA-101",
+    "address": "12500 Huston St Apt 104",
+    "city": "Valley Village",
+    "state": "CA",
+    "zip_code": "91607",
+    "price": 649000,
+    "bedrooms": 2,
+    "bathrooms": 2,
+    "square_feet": 1137,
+    "amenities": [
+      "Condo"
+    ],
+    "local_sponsors": [
+      {
+        "sponsor_id": "SPON-201",
+        "name": "Summit Valley Mortgage",
+        "category": "mortgage"
+      }
+    ]
+  },
+  {
+    "property_id": "PROP-CA-102",
+    "address": "1150 Santa Rosa Blvd Unit 322",
+    "city": "Fort Walton Beach",
+    "state": "FL",
+    "zip_code": "32548",
+    "price": 580000,
+    "bedrooms": 3,
+    "bathrooms": 2,
+    "square_feet": 1202,
+    "amenities": [
+      "Condo"
+    ],
+    "local_sponsors": [
+      {
+        "sponsor_id": "SPON-202",
+        "name": "Bay City Relocation & Moving",
+        "category": "moving"
+      }
+    ]
+  },
+  {
+    "property_id": "PROP-CA-103",
+    "address": "301 Summit Dr",
+    "city": "Destin",
+    "state": "FL",
+    "zip_code": "32541",
+    "price": 599900,
+    "bedrooms": 4,
+    "bathrooms": 3,
+    "square_feet": 2293,
+    "amenities": [
+      "House"
+    ],
+    "local_sponsors": [
+      {
+        "sponsor_id": "SPON-203",
+        "name": "Heritage Home Remodeling",
+        "category": "home_services"
+      }
+    ]
+  },
+  {
+    "property_id": "PROP-CA-104",
+    "address": "603 N Las Palmas Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "zip_code": "90004",
+    "price": 3800000,
+    "bedrooms": 5,
+    "bathrooms": 5.5,
+    "square_feet": 4800,
+    "amenities": [
+      "House"
+    ],
+    "local_sponsors": [
+      {
+        "sponsor_id": "SPON-204",
+        "name": "Golden Gate Assurance Group",
+        "category": "insurance"
+      }
+    ]
+  },
+  {
+    "property_id": "PROP-CA-105",
+    "address": "15012 Wyandotte St",
+    "city": "Los Angeles",
+    "state": "CA",
+    "zip_code": "91405",
+    "price": 1550000,
+    "bedrooms": 6,
+    "bathrooms": 6,
+    "square_feet": 3131,
+    "amenities": [
+      "House"
+    ],
+    "local_sponsors": [
+      {
+        "sponsor_id": "SPON-205",
+        "name": "Crestview Realty Advisors",
+        "category": "realtor"
+      }
+    ]
+  }
+]
