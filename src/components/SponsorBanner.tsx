@@ -1,12 +1,29 @@
 import type { Sponsor } from "../types";
 
 interface SponsorBannerProps {
-  sponsor: Sponsor;
+  sponsor: Sponsor | null;
 }
 
 export default function SponsorBanner({
   sponsor,
 }: SponsorBannerProps) {
+  if (!sponsor) {
+    return (
+      <aside
+        aria-label="Neighborhood information"
+        className="rounded-lg border border-gray-300 bg-gray-50 p-4"
+      >
+        <h2 className="text-xl font-bold">
+          Neighborhood Listing Platform
+        </h2>
+
+        <p className="mt-2">
+          Explore local resources and discover more about your neighborhood.
+        </p>
+      </aside>
+    );
+  }
+
   return (
     <aside
       aria-labelledby={`sponsor-${sponsor.id}`}
