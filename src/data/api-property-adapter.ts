@@ -14,5 +14,6 @@ export function apiPropertyToCard(
     squareFeet: property.square_feet,
     imageUrl: "/property-placeholder.svg",
     imageAlt: `Placeholder image for ${property.address}`,
+    detailsUrl: `/listings/${property.id}`,
   };
 }
