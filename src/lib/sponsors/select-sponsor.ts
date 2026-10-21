@@ -12,7 +12,7 @@ export interface SponsorContext {
 }
 export function selectSponsor(
   context: SponsorContext,
-  candidates: SponsorCandidate[]
+  candidates: readonly SponsorCandidate[]
 ): SponsorCandidate | null {
   if (candidates.length === 0) {
     return null;

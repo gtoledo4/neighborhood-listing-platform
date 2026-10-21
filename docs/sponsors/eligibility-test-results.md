@@ -1,31 +1,29 @@
 # Sponsor Eligibility Test Results
 ## Test Environment
 - Database: Development Supabase
-- Test property: `PROP-TEST-001`
-- Property ZIP: `95825`
+- Test property: PROP-TEST-001
+- Property ZIP: 95825
 - Test sponsor: Willow Creek Home Finance
 - Test date: October 20, 2026
 
 ## Eligibility Test Results
-| Test scenario | Expected result | Actual result | Status |
-|---|---|---|---|
-| Exact ZIP match | Sponsor qualifies when property and sponsor ZIP codes match | Willow Creek Home Finance returned for ZIP `95825` | PASS |
-| Nearby ZIP match | Sponsor qualifies when the property is within the permitted radius | Distance was 3.08 miles; allowed radius was 5 miles; sponsor returned by full eligibility query | PASS |
-| Inactive sponsor | Sponsor is excluded when `is_active = false` | No rows returned | PASS |
-| Expired campaign | Sponsor is excluded when campaign end date is in the past | No rows returned | PASS |
-| Equal-priority tie | Selection is deterministic regardless of candidate order | Vitest passed | PASS |
-| No eligible candidates | Selection returns `null` | Vitest passed | PASS |
+Exact ZIP match - Sponsor qualifies when property and sponsor ZIP codes match - Willow Creek Home Finance returned for ZIP 95825 - PASS
+Nearby ZIP match - Sponsor qualifies when the property is within the permitted radius - Distance was 3.08 miles; allowed radius was 5 miles; sponsor returned by full eligibility query - PASS
+Inactive sponsor - Sponsor is excluded when is_active = false - No rows returned - PASS
+Expired campaign - Sponsor is excluded when campaign end date is in the past - No rows returned - PASS
+Equal-priority tie - Selection is deterministic regardless of candidate order - Vitest passed - PASS
+No eligible candidates - Selection returns null - Vitest passed - PASS
 
 ## Automated Test Evidence
-Command: `npx vitest run src/lib/sponsors/select-sponsor.test.ts`
+Command: npx vitest run src/lib/sponsors/select-sponsor.test.ts
 Results:
 - 3 tests passed.
 - Highest-priority sponsor selected.
 - Equal-priority selection remained stable when candidates were reordered.
-- Empty candidate list returned `null`.
+- Empty candidate list returned null.
 
 ## Notes
-- Geographic eligibility uses ZIP-center coordinates stored in `public.zip_locations`.
+- Geographic eligibility uses ZIP-center coordinates stored in public.zip_locations.
 - Manual SQL tests were performed in the development database.
 - Automated selection tests use Vitest.
 - The four database eligibility scenarios should eventually be converted into repeatable automated tests.
@@ -55,6 +53,7 @@ Files Updated:
 - src/lib/sponsors/select-sponsor.ts
 - src/lib/sponsors/select-sponsor.test.ts
 
+
 ## Adversarial Test: Input Immutability
 ### Edge Case
 Sponsor candidates arrive in an unsorted array.
@@ -70,6 +69,7 @@ Ran all five sponsor selection tests using Vitest. Final result: 5 tests passed,
 
 ### Code Changes
 No changes to selectSponsor() were necessary.
+
 
 ## Adversarial Test: Negative Sponsor Priorities
 ### Edge Case
@@ -90,6 +90,7 @@ Ran all six sponsor selection tests using Vitest. Final result: 6 tests passed, 
 ### Code Changes
 No changes to selectSponsor() were necessary.
 
+
 ## Adversarial Test: Zero Priority
 ### Edge Case
 Two sponsor candidates have priorities of -5 and 0.
@@ -106,6 +107,7 @@ Ran all seven sponsor selection tests using Vitest. Final result: 7 tests passed
 
 ### Code Changes
 No changes to selectSponsor() were necessary.
+
 
 ## Adversarial Test: Deterministic Sponsor Selection
 ### Edge Case
@@ -124,6 +126,7 @@ Ran all eight sponsor selection tests using Vitest. Final result: 8 tests passed
 
 ### Code Changes
 No changes to selectSponsor() were necessary.
+
 
 ## Sponsor Eligibility Query Performance
 ### Query
@@ -154,6 +157,7 @@ Relevant indexes already exist on:
 ### Index Decision
 No additional indexes were added. The dataset is very small, and the existing indexes support the main relationship lookups. Additional indexes are not justified by the current measurements.
 
+
 ## Three-Property Sponsor Demonstration
 ### Property 1: 123 Willow Creek Lane
 - Property ID: PROP-TEST-001
@@ -176,5 +180,31 @@ No additional indexes were added. The dataset is very small, and the existing in
 - Sponsored disclosure: Not displayed
 - Result: PASS
 
-### Conclusion
-All three property detail pages displayed the expected sponsor selection outcomes. The application correctly distinguishes eligible sponsored content from the neutral fallback message.
+
+## Adversarial Testing with Two AI Tools
+### Tools Used
+- ChatGPT
+- Google AI Studio
+
+### Google AI Studio Findings
+Google AI Studio suggested five adversarial scenarios:
+1. Negative hash values.
+2. Zero and negative priorities.
+3. Context hash collisions.
+4. Frozen input arrays.
+5. Duplicate sponsor records.
+The existing implementation already addressed several of these
+scenarios. Frozen input arrays were selected for additional testing.
+
+### Frozen Input Array Test
+Expected: selectSponsor() accepts frozen sponsor candidates
+without modifying their contents or order.
+Initial result: TypeScript rejected the readonly array because
+the function parameter required a mutable array.
+Fix: Changed the candidates parameter type to
+readonly SponsorCandidate[].
+Final result: PASS.
+
+### Verification
+- TypeScript: PASS
+- Vitest: 9 tests passed, 0 failed

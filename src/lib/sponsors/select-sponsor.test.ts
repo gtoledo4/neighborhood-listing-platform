@@ -228,4 +228,37 @@ describe("selectSponsor", () => {
       expect(result?.id).toBe(firstResult?.id);
     }
   });
+
+  it("handles frozen sponsor candidates without modifying them", () => {
+    const candidates = Object.freeze([
+      Object.freeze({
+        id: "sponsor-b",
+        business_name: "Sacramento Insurance",
+        category: "insurance",
+        website_url: null,
+        priority: 10,
+      }),
+      Object.freeze({
+        id: "sponsor-a",
+        business_name: "Sacramento Mortgage",
+        category: "mortgage",
+        website_url: null,
+        priority: 10,
+      }),
+    ]);
+
+    const originalOrder = candidates.map((sponsor) => sponsor.id);
+
+    const result = selectSponsor(
+      {
+        propertyId: "property-001",
+        placement: "property_detail",
+      },
+      candidates
+    );
+
+    expect(result).not.toBeNull();
+    expect(candidates.map((sponsor) => sponsor.id)).toEqual(originalOrder);
+    expect(Object.isFrozen(candidates)).toBe(true);
+  });
 });
