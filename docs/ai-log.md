@@ -67,3 +67,42 @@ AI generated the initial diagram and SQL proposal. The design was reviewed step 
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | Part 1 - ChatGPT / Git | Asked for guidance on creating a clean examination branch. | Used Git commands to commit existing work and create the examination branch. | None rejected. | Verified branch name and clean working tree using Git. | 9fea3ba (pre-exam commit); exam commit pending |
 | Part 1 - ChatGPT / Security | Asked for help verifying .gitignore and sensitive file protection. | Used commands to check ignored files and repository status. | None rejected. | Confirmed required paths were ignored using git check-ignore and git status. | Pending |
+### Practical Exam — Final AI Attribution and Verification
+
+**Part 1 — Git and security setup**
+- AI assistance: ChatGPT provided Git commands, branch setup guidance, and suggestions for checking ignored files.
+- Independent verification: Ran Git commands and checked the branch, working tree, and commit history.
+- Commit: c61f9c1.
+
+**Part 2 — Requirements**
+- AI assistance: ChatGPT helped organize user stories, acceptance criteria, estimates, and traceability.
+- Independent verification: Reviewed and committed docs/requirements.md.
+- Commit: 0877207.
+
+**Parts 3 and 4 — Database schema and RLS**
+- AI assistance: ChatGPT helped draft SQL migrations, database constraints, authorization functions, and row-level security policies.
+- Independent verification: Reviewed the migration and committed the SQL files.
+- Limitation: The exam migration was not applied to the remote database. Its constraints and RLS policies have not been independently tested.
+- Decision: Deferred deployment because migration history was inconsistent and a verified database backup was unavailable.
+- Commit: 48ce660.
+
+**Part 5 — Zod and API**
+- AI assistance: ChatGPT proposed the property validation schema, Supabase server wrapper, and authenticated GET/POST API handlers.
+- Independent verification: Ran npx tsc --noEmit and npm run build successfully.
+- Limitation: No live API integration test was completed for the exam implementation.
+- Commit: c756781.
+
+**Part 6 — Accessibility**
+- AI assistance: ChatGPT suggested accessible article labeling and reviewed the existing responsive grid and keyboard focus classes.
+- Independent verification: Inspected component source, ran TypeScript checks, and completed the production build.
+- Limitation: Manual keyboard and screen-reader tests were not performed.
+- Commit: 1855568.
+
+**Security audit**
+- AI assistance: ChatGPT drafted the security audit documentation.
+- Independent verification: Reviewed and committed the document.
+- Limitation: The audit documents proposed controls and outstanding tests, not verified deployment.
+- Commit: d3885cc.
+
+**Overall attribution**
+AI supplied explanations, suggested commands, draft code, SQL, and documentation. I executed commands, reviewed outputs, made implementation decisions, and verified the Git history, TypeScript compilation, and production build. I did not treat unexecuted database or accessibility tests as successful.
