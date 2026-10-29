@@ -58,3 +58,12 @@ AI generated the initial diagram and SQL proposal. The design was reviewed step 
 - Fixed a database permission issue by granting the authenticated role table-level INSERT permission while retaining row-level security.
 - Verified that TypeScript checks and the production build pass. ESLint completes with one existing image-optimization warning in src/components/PropertyCard.tsx.
 - Test records used during verification are synthetic development data.
+
+
+## Practical Exam — AI Provenance Journal
+**Date:** October 29, 2026
+**Branch:** `exam/practical-persistence-eval`
+| Step / Tool | Prompt Summary | Model Output Used | Model Output Rejected & Rationale | Verification Method | Associated Git Commit |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| Part 1 - ChatGPT / Git | Asked for guidance on creating a clean examination branch. | Used Git commands to commit existing work and create the examination branch. | None rejected. | Verified branch name and clean working tree using Git. | 9fea3ba (pre-exam commit); exam commit pending |
+| Part 1 - ChatGPT / Security | Asked for help verifying .gitignore and sensitive file protection. | Used commands to check ignored files and repository status. | None rejected. | Confirmed required paths were ignored using git check-ignore and git status. | Pending |
