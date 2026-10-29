@@ -1,14 +1,18 @@
+import { useId } from "react";
 import type { Property } from "../types";
 
 interface PropertyCardProps {
   property: Property;
 }
 
-export default function PropertyCard({
-  property,
-}: PropertyCardProps) {
+export default function PropertyCard({ property }: PropertyCardProps) {
+  const headingId = useId();
+
   return (
-    <article className="overflow-hidden rounded-lg border border-gray-300 bg-white shadow-sm">
+    <article
+      aria-labelledby={headingId}
+      className="overflow-hidden rounded-lg border border-gray-300 bg-white shadow-sm"
+    >
       <img
         src={property.imageUrl}
         alt={property.imageAlt}
@@ -16,7 +20,7 @@ export default function PropertyCard({
       />
 
       <div className="p-4">
-        <h3 className="text-xl font-semibold">
+        <h3 id={headingId} className="text-xl font-semibold">
           {property.title}
         </h3>
 
@@ -33,6 +37,7 @@ export default function PropertyCard({
           <li>{property.bathrooms} bathrooms</li>
           <li>{property.squareFeet.toLocaleString()} sq. ft.</li>
         </ul>
+
         {property.detailsUrl && (
           <a
             href={property.detailsUrl}
