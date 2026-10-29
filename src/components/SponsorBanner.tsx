@@ -27,9 +27,13 @@ export default function SponsorBanner({
   return (
     <aside
       aria-labelledby={`sponsor-${sponsor.id}`}
+      aria-describedby={`sponsor-disclosure-${sponsor.id}`}
       className="rounded-lg border border-amber-300 bg-amber-50 p-4"
     >
-      <p className="text-sm font-semibold uppercase text-gray-700">
+      <p
+        id={`sponsor-disclosure-${sponsor.id}`}
+        className="text-sm font-semibold uppercase text-gray-700"
+      >
         Sponsored
       </p>
 
@@ -44,6 +48,7 @@ export default function SponsorBanner({
 
       <a
         href={sponsor.websiteUrl}
+        aria-label={`Visit ${sponsor.businessName} (Sponsored link)`}
         className="mt-3 inline-block rounded text-blue-700 underline focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-blue-300"
       >
         Visit {sponsor.businessName}

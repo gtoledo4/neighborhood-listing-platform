@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { supabaseAdmin } from "@/lib/supabase/admin";
 import { getSelectedSponsor } from "@/lib/sponsors/get-selected-sponsor";
 import { recordSponsorClick } from "@/lib/sponsors/record-click";
+import { validateSponsorUrl } from "@/lib/sponsors/validate-sponsor-url";
 
 interface RouteContext {
   params: Promise<{ id: string }>;
@@ -64,32 +65,16 @@ export async function GET(
       );
     }
 
-    let destination: URL;
+    const validation = validateSponsorUrl(selectedSponsor.website_url);
 
-    try {
-      destination = new URL(selectedSponsor.website_url);
-    } catch {
+    if (!validation.success) {
       return NextResponse.json(
-        { error: "Invalid sponsor destination" },
+        { error: validation.error },
         { status: 400 }
       );
     }
 
-    if (
-      destination.protocol !== "https:" ||
-      destination.username ||
-      destination.password ||
-      destination.hostname === "localhost" ||
-      destination.hostname.endsWith(".localhost") ||
-      destination.hostname.endsWith(".local") ||
-      destination.hostname === "127.0.0.1" ||
-      destination.hostname === "::1"
-    ) {
-      return NextResponse.json(
-        { error: "Sponsor destination is not allowed" },
-        { status: 400 }
-      );
-    }
+    const destination = validation.destination;
 
     await recordSponsorClick({
       sponsorId: selectedSponsor.id,
