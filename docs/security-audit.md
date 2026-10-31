@@ -35,3 +35,21 @@ No live RLS enforcement or API integration test is claimed.
 Do not deploy the migration until migration history is reconciled,
 a database backup is available, and RLS policies can be tested
 with anonymous, owner, non-owner, and administrator accounts.
+
+## Practical Exam — Deployed Verification (2026-10-30 PDT)
+
+Environment: Vercel preview, exam/practical-persistence-eval
+Database: Supabase remote project
+
+| Test | Expected | Observed | Result |
+|---|---|---|---|
+| Public GET /api/properties | Approved property data with six allowed fields | Three records returned; each contained id, address, price, bedrooms, bathrooms, square_feet | PASS |
+| Anonymous POST /api/properties | HTTP 401 | HTTP 401, Authentication required | PASS |
+| POST with invalid Bearer token | HTTP 401 | HTTP 401, Invalid authentication token | PASS |
+| RLS enabled on five required tables | Enabled | Enabled on profiles, sponsors, properties, property_sponsors, inquiries | PASS |
+| Draft/rejected visibility | Not publicly accessible | Not tested | PENDING |
+| Valid authenticated POST | HTTP 201 for valid owner submission | Not tested | PENDING |
+| Owner/admin authorization | Access restricted by role and ownership | Not tested | PENDING |
+
+Note: Passing API tests does not independently establish that all
+database RLS policies behave correctly. Remaining tests are pending.
