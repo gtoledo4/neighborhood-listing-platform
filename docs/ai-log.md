@@ -67,42 +67,43 @@ AI generated the initial diagram and SQL proposal. The design was reviewed step 
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | Part 1 - ChatGPT / Git | Asked for guidance on creating a clean examination branch. | Used Git commands to commit existing work and create the examination branch. | None rejected. | Verified branch name and clean working tree using Git. | 9fea3ba (pre-exam commit); exam commit pending |
 | Part 1 - ChatGPT / Security | Asked for help verifying .gitignore and sensitive file protection. | Used commands to check ignored files and repository status. | None rejected. | Confirmed required paths were ignored using git check-ignore and git status. | Pending |
+
+
+
 ### Practical Exam — Final AI Attribution and Verification
+Date: October 30, 2026
+Branch: exam/practical-persistence-eval
 
-**Part 1 — Git and security setup**
-- AI assistance: ChatGPT provided Git commands, branch setup guidance, and suggestions for checking ignored files.
-- Independent verification: Ran Git commands and checked the branch, working tree, and commit history.
-- Commit: c61f9c1.
+## Part 1 — Git and Security Setup
+- AI assistance: ChatGPT provided Git commands, branch setup guidance, and suggestions for checking ignored files and repository security.
+- Independent verification: I checked the code repository to make sure everything is on the correct exam branch, fully updated on GitHub, and added pdt605 as a collaborator. I then ran Secretlint over all current files and past commit histories to ensure no secret API keys or passwords were saved accidentally. Neither scan found any secrets.
 
-**Part 2 — Requirements**
-- AI assistance: ChatGPT helped organize user stories, acceptance criteria, estimates, and traceability.
-- Independent verification: Reviewed and committed docs/requirements.md.
-- Commit: 0877207.
+## art 2 — Requirements
+- AI assistance: ChatGPT helped organize the three user stories, Given/When/Then acceptance criteria, estimates, and implementation traceability.
+- Independent verification: I reviewed docs/requirements.md, confirmed that it included the property owner, public inquirer, and platform administrator requirements, and committed the document.
 
-**Parts 3 and 4 — Database schema and RLS**
-- AI assistance: ChatGPT helped draft SQL migrations, database constraints, authorization functions, and row-level security policies.
-- Independent verification: Reviewed the migration and committed the SQL files.
-- Limitation: The exam migration was not applied to the remote database. Its constraints and RLS policies have not been independently tested.
-- Decision: Deferred deployment because migration history was inconsistent and a verified database backup was unavailable.
-- Commit: 48ce660.
+## Parts 3 and 4 — Database Schema and Row-Level Security
+- AI assistance: ChatGPT helped draft and troubleshoot SQL migrations, database constraints, authorization functions, and row-level security policies. AI also suggested procedures for investigating inconsistent Supabase migration history.
+- Independent verification: I reviewed the database changes, fixed the record of past updates, and pushed the new migration to Supabase. The update finished successfully, and I verified that security rules are turned on for all five main tables: profiles, sponsors, properties, property_sponsors, and inquiries.
 
-**Part 5 — Zod and API**
-- AI assistance: ChatGPT proposed the property validation schema, Supabase server wrapper, and authenticated GET/POST API handlers.
-- Independent verification: Ran npx tsc --noEmit and npm run build successfully.
-- Limitation: No live API integration test was completed for the exam implementation.
-- Commit: c756781.
+## Part 5 — Zod Validation and API
+- AI assistance: ChatGPT proposed the property validation schema, Supabase server wrapper, and authenticated GET/POST API implementation. AI also helped troubleshoot the Vercel preview configuration.
+- Independent verification: I ran npx tsc --noEmit, npm run build, and lint checks during implementation. After correcting the Vercel Preview environment configuration, I tested the deployed API:
+GET /api/properties returned three approved property records with the six expected fields: id, address, price, bedrooms, bathrooms, and square_feet.
+An anonymous POST request returned HTTP 401 with an authentication-required response.
+A POST request using an invalid Bearer token returned HTTP 401 with an invalid-token response.
 
-**Part 6 — Accessibility**
-- AI assistance: ChatGPT suggested accessible article labeling and reviewed the existing responsive grid and keyboard focus classes.
-- Independent verification: Inspected component source, ran TypeScript checks, and completed the production build.
-- Limitation: Manual keyboard and screen-reader tests were not performed.
-- Commit: 1855568.
+## Part 6 — Accessibility and Responsive UI
+- AI assistance: ChatGPT suggested accessible article labeling, semantic HTML improvements, responsive grid layout, and keyboard focus styling.
+- Independent verification: I inspected the component source, ran TypeScript checks, and completed a production build.
 
-**Security audit**
-- AI assistance: ChatGPT drafted the security audit documentation.
-- Independent verification: Reviewed and committed the document.
-- Limitation: The audit documents proposed controls and outstanding tests, not verified deployment.
-- Commit: d3885cc.
+## Security Audit and Deployment Verification
 
-**Overall attribution**
-AI supplied explanations, suggested commands, draft code, SQL, and documentation. I executed commands, reviewed outputs, made implementation decisions, and verified the Git history, TypeScript compilation, and production build. I did not treat unexecuted database or accessibility tests as successful.
+- AI assistance: ChatGPT helped draft docs/security-audit.md, organize the test matrix, troubleshoot deployment issues, and document verification results.
+- Independent verification: I saved and uploaded the updated security document, ran the database update on Supabase, and made sure data security RLS was turned on. I then tested the live API and noted down the results. The security report now clearly separates tests that are actually finished from tests that are still waiting to be run, instead of marking everything as complete upfront.
+
+
+## Credential and Git History Verification
+
+- AI assistance: ChatGPT suggested Git history inspection commands and Secretlint scanning procedures.
+- Independent verification: I ran Secretlint using its standard security rules to scan both our current project files and the entire Git history. The tool found no passwords, API keys, or secret tokens.
