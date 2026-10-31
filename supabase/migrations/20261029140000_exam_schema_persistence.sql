@@ -277,6 +277,18 @@ WITH CHECK (
     owner_id = (SELECT auth.uid())
     AND status IN ('draft', 'rejected')
 );
+
+-- Allow property owners to delete only their own listings.
+GRANT DELETE ON public.properties TO authenticated;
+
+CREATE POLICY "Owners can delete their own properties"
+ON public.properties
+FOR DELETE
+TO authenticated
+USING (
+    owner_id = (SELECT auth.uid())
+);
+
 -- 8. SPONSOR AND PROPERTY-SPONSOR RLS POLICIES
 
 -- Public users can read active sponsors.
@@ -319,6 +331,9 @@ REVOKE SELECT ON public.inquiries FROM anon, authenticated;
 GRANT INSERT ON public.inquiries TO anon, authenticated;
 
 -- Anonymous users may submit inquiries, but cannot read them.
+DROP POLICY IF EXISTS "Public can submit inquiries"
+ON public.inquiries;
+
 CREATE POLICY "Public can submit inquiries"
 ON public.inquiries
 FOR INSERT
@@ -383,6 +398,12 @@ FOR UPDATE
 TO authenticated
 USING ((SELECT public.is_admin()))
 WITH CHECK ((SELECT public.is_admin()));
+-- Allow administrators to delete any property.
+CREATE POLICY "Admins can delete all properties"
+ON public.properties
+FOR DELETE
+TO authenticated
+USING ((SELECT public.is_admin()));
 -- 12. ADMINISTRATOR INQUIRY ACCESS
 
 CREATE POLICY "Admins can read all inquiries"
