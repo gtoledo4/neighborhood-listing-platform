@@ -8,7 +8,7 @@ export async function GET() {
 
     const { data, error } = await supabase
       .from('properties')
-      .select('*')
+      .select("id, address, price, bedrooms, bathrooms, square_feet")
       .eq('status', 'approved')
       .order('created_at', { ascending: false });
 
@@ -73,7 +73,6 @@ export async function POST(request: NextRequest) {
       .insert({
         ...parsed.data,
         owner_id: user.id,
-        status: 'draft',
       })
       .select()
       .single();
