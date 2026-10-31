@@ -11,15 +11,7 @@ App
 
 Step 2: Interface Review
 
-AI Studio initially generated detailed interfaces containing property
-agents, multiple images, listing statuses, callbacks, and banner tracking.
-
-I removed those fields because the assignment does not require those
-features. I kept the fields needed to display the property heading,
-address, price, facts, image, descriptive alt text, and details link.
-
-All retained fields are required because every sample property and
-sponsor needs them to render complete and accessible content.
+AI Studio initially generated detailed interfaces containing property agents, multiple images, listing statuses, callbacks, and banner tracking. I removed those fields because the assignment does not require those features. I kept the fields needed to display the property heading, address, price, facts, image, descriptive alt text, and details link. All retained fields are required because every sample property and sponsor needs them to render complete and accessible content.
 
 # Google AI Studio
 export interface PropertyAddress {
@@ -109,7 +101,6 @@ export interface SponsorBannerProps {
 ## Keyboard Accessibility Test
 
 The page was tested without using a mouse.
-
 Property type - Tab and arrow keys - Pass
 Maximum price - Tab and arrow keys - Pass
 Search button - Tab, Enter, and Space - Pass
@@ -130,8 +121,7 @@ Add descriptive alt text - Inspected each property image - Already implemented
 
 ## Accessibility Corrections
 
-After reviewing the ChatGPT and Gemini suggestions, each recommendation
-was verified through browser and keyboard testing.
+After reviewing the ChatGPT and Gemini suggestions, each recommendation was verified through browser and keyboard testing.
 
 1. Focus-visible styles were already present on interactive elements.
 2. Heading order was verified as h1, h2, and h3.
