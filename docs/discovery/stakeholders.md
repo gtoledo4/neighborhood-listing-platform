@@ -1,4 +1,4 @@
-# Smulated Stakeholder Discovery
+# Simulated Stakeholder Discovery
 ## Stakeholder 1: Property Professional
 ### Known facts
 1. The platform displays property listings.
