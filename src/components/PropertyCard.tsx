@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { Property } from "../types";
 
 interface PropertyCardProps {
@@ -7,13 +8,26 @@ interface PropertyCardProps {
 export default function PropertyCard({
   property,
 }: PropertyCardProps) {
+  const isAiIllustration = /^\/images\/fictional-home-[123]\.webp$/.test(
+    property.imageUrl
+  );
+
   return (
     <article className="overflow-hidden rounded-lg border border-gray-300 bg-white shadow-sm">
-      <img
+      <Image
         src={property.imageUrl}
         alt={property.imageAlt}
+        width={1200}
+        height={800}
+        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
         className="h-48 w-full object-cover"
       />
+
+      {isAiIllustration && (
+        <p className="px-4 pt-2 text-xs text-gray-600">
+          AI-generated illustration. Not an actual photograph of this property.
+        </p>
+      )}
 
       <div className="p-4">
         <h3 className="text-xl font-semibold">
@@ -33,6 +47,7 @@ export default function PropertyCard({
           <li>{property.bathrooms} bathrooms</li>
           <li>{property.squareFeet.toLocaleString()} sq. ft.</li>
         </ul>
+
         {property.detailsUrl && (
           <a
             href={property.detailsUrl}

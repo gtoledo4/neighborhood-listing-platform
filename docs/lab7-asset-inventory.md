@@ -85,3 +85,25 @@ Improvements needed:
 - Create approved, consistently sized image variants.
 - Update image components and validate performance.
 - Document the content approval and unpublishing process.
+
+## 7. AI-Generated Property Illustrations
+
+Three fictional property illustrations were generated using ChatGPT image generation.
+These images are synthetic illustrations and do not represent verified photographs of the listed properties.
+
+| Asset | Original Source | Optimized Format | Dimensions | Purpose | Status |
+
+| fictional-home-1.webp | AI-generated PNG | WebP, quality 80 | 1200 × 800 | Fictional property illustration | Pending human approval |
+| fictional-home-2.webp | AI-generated PNG | WebP, quality 80 | 1200 × 800 | Fictional property illustration | Pending human approval |
+| fictional-home-3.webp | AI-generated PNG | WebP, quality 80 | 1200 × 800 | Fictional property illustration | Pending human approval |
+
+ChatGPT image generation
+- Original storage: 3610/images/, outside the application project
+- Optimized storage: public/images/
+- Optimization tool: Sharp 0.35.4
+- Optimization settings: 1200 × 800 pixels, WebP quality 80, center crop
+- Approximate total size reduction: 92.3%, from 9.8 MB to 768 KB.
+- Owner / responsible reviewer: Project contributor; final approval pending.
+- License / usage: AI-generated output; applicable usage terms and publication approval should be verified.
+- Expiration: Not established.
+- Accessibility: Each illustration must receive accurate alt text describing its visible features. The application must clearly disclose that the images are AI-generated illustrations rather than actual property photographs.
