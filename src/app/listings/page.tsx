@@ -1,51 +1,92 @@
-export default function Home() {
+"use client";
+
+import { useEffect, useState } from "react";
+import PropertyCard from "@/components/PropertyCard";
+import { apiPropertyToCard } from "@/data/api-property-adapter";
+import type { ApiProperty } from "@/types/api-property";
+
+export default function ListingsPage() {
+  const [listings, setListings] = useState<ApiProperty[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const controller = new AbortController();
+
+    async function loadListings() {
+      try {
+        const response = await fetch("/api/listings", {
+          signal: controller.signal,
+        });
+
+        if (!response.ok) {
+          throw new Error("Unable to load listings.");
+        }
+
+        const data: unknown = await response.json();
+
+        if (
+          typeof data !== "object" ||
+          data === null ||
+          !("listings" in data) ||
+          !Array.isArray(data.listings)
+        ) {
+          throw new Error("Invalid listings response.");
+        }
+
+        setListings(data.listings);
+      } catch (err) {
+        if (controller.signal.aborted) return;
+
+        setError(
+          err instanceof Error
+            ? err.message
+            : "Unable to load listings."
+        );
+      } finally {
+        if (!controller.signal.aborted) {
+          setLoading(false);
+        }
+      }
+    }
+
+    loadListings();
+
+    return () => controller.abort();
+  }, []);
+
   return (
     <main className="min-h-screen bg-gray-50 px-6 py-12">
       <div className="mx-auto max-w-5xl">
-        <header className="mb-10 text-center">
-          <h1 className="text-4xl font-bold text-gray-900">
-            Neighborhood Listing Platform
-          </h1>
+        <h1 className="mb-8 text-4xl font-bold text-gray-900">
+          Property Listings
+        </h1>
 
-          <p className="mt-4 text-lg text-gray-600">
-            Discover useful places, services, and resources in your
-            neighborhood.
+        {loading ? (
+          <p role="status" className="text-gray-600">
+            Loading listings...
           </p>
-        </header>
-
-        <section
-          aria-label="Platform features"
-          className="grid gap-6 md:grid-cols-3"
-        >
-          <article className="rounded-lg bg-white p-6 shadow">
-            <h2 className="text-xl font-semibold text-gray-900">
-              Listings
-            </h2>
-            <p className="mt-3 text-gray-600">
-              Find local places, services, and resources in your neighborhood.
-            </p>
-          </article>
-
-          <article className="rounded-lg bg-white p-6 shadow">
-            <h2 className="text-xl font-semibold text-gray-900">
-              Neighborhood Sponsors
-            </h2>
-            <p className="mt-3 text-gray-600">
-              Discover local organizations and businesses that support the
-              community.
-            </p>
-          </article>
-
-          <article className="rounded-lg bg-white p-6 shadow">
-            <h2 className="text-xl font-semibold text-gray-900">
-              Voice Help
-            </h2>
-            <p className="mt-3 text-gray-600">
-              Get help finding neighborhood information using voice-friendly
-              features.
-            </p>
-          </article>
-        </section>
+        ) : error ? (
+          <p role="alert" className="text-red-700">
+            {error}
+          </p>
+        ) : listings.length === 0 ? (
+          <p role="status" className="text-gray-600">
+            No active listings are available right now.
+          </p>
+        ) : (
+          <section
+            aria-label="Available properties"
+            className="grid gap-6 md:grid-cols-2 lg:grid-cols-3"
+          >
+            {listings.map((listing) => (
+              <PropertyCard
+                key={listing.id}
+                property={apiPropertyToCard(listing)}
+              />
+            ))}
+          </section>
+        )}
       </div>
     </main>
   );

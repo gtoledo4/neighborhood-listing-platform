@@ -9,9 +9,9 @@ export const properties: Property[] = [
     bedrooms: 6,
     bathrooms: 8.5,
     squareFeet: 8472,
-    imageUrl: "/images/minorca-house.jpg",
+    imageUrl: "/images/fictional-home-1.webp",
     imageAlt:
-      "Exterior of the luxury estate at 1221 Minorca Drive",
+      "AI-generated illustration of a Mediterranean-style luxury home",
     detailsUrl:
       "https://www.realtor.com/realestateandhomes-detail/1221-Minorca-Dr_Pacific-Palisades_CA_90272_M26930-01342",
   },
@@ -23,9 +23,9 @@ export const properties: Property[] = [
     bedrooms: 4,
     bathrooms: 3.5,
     squareFeet: 2952,
-    imageUrl: "/images/paseo-de-oro-house.jpg",
+    imageUrl: "/images/fictional-home-2.webp",
     imageAlt:
-      "Exterior view of the home at 1492 Paseo De Oro",
+      "AI-generated illustration of a Mediterranean-style home with landscaping",
     detailsUrl:
       "https://www.realtor.com/realestateandhomes-detail/1492-Paseo-De-Oro_Pacific-Palisades_CA_90272_M12211-34305",
   },
@@ -37,9 +37,9 @@ export const properties: Property[] = [
     bedrooms: 8,
     bathrooms: 8.5,
     squareFeet: 16773,
-    imageUrl: "/images/amalfi-house.jpg",
+    imageUrl: "/images/fictional-home-3.webp",
     imageAlt:
-      "Exterior and landscaped grounds of the estate at 1550 Amalfi Drive",
+      "AI-generated illustration of a Mediterranean-style villa",
     detailsUrl:
       "https://www.realtor.com/realestateandhomes-detail/1550-Amalfi-Dr_Pacific-Palisades_CA_90272_M11354-53513",
   },

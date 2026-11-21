@@ -1,14 +1,8 @@
 import PropertyListingGrid from "../components/PropertyListingGrid";
 import SearchFilters from "../components/SearchFilters";
 import SponsorBanner from "../components/SponsorBanner";
-import type { Sponsor } from "../types";
 
-const sponsor: Sponsor = {
-  id: "sunshine-mortgage",
-  businessName: "Sunshine Mortgage",
-  message: "Explore financing options for your next home.",
-  websiteUrl: "https://example.com",
-};
+import { getApprovedDemoSponsor } from "../lib/sponsors/approved-content";
 
 export default function Home() {
   return (
@@ -26,7 +20,7 @@ export default function Home() {
       </div>
 
       <div className="mt-8">
-        <SponsorBanner sponsor={sponsor} />
+        <SponsorBanner sponsor={getApprovedDemoSponsor()} />
       </div>
     </main>
   );

@@ -1,3 +1,8 @@
+
+"use client";
+
+import { useEffect, useState } from "react";
+import Image from "next/image";
 import type { Property } from "../types";
 
 interface PropertyCardProps {
@@ -7,13 +12,43 @@ interface PropertyCardProps {
 export default function PropertyCard({
   property,
 }: PropertyCardProps) {
+  const [imageFailed, setImageFailed] = useState(false);
+
+  useEffect(() => {
+    setImageFailed(false);
+  }, [property.imageUrl]);
+
+  const isAiIllustration = /^\/images\/fictional-home-[123]\.webp$/.test(
+    property.imageUrl
+  );
+
   return (
     <article className="overflow-hidden rounded-lg border border-gray-300 bg-white shadow-sm">
-      <img
-        src={property.imageUrl}
-        alt={property.imageAlt}
-        className="h-48 w-full object-cover"
-      />
+      {imageFailed ? (
+        <div
+          role="img"
+          aria-label="Property image unavailable"
+          className="flex h-48 w-full items-center justify-center bg-gray-100 px-4 text-center text-sm text-gray-600"
+        >
+          Property image unavailable
+        </div>
+      ) : (
+        <Image
+          src={property.imageUrl}
+          alt={property.imageAlt}
+          width={1200}
+          height={800}
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          className="h-48 w-full object-cover"
+          onError={() => setImageFailed(true)}
+        />
+      )}
+
+      {isAiIllustration && (
+        <p className="px-4 pt-2 text-xs text-gray-600">
+          AI-generated illustration. Not an actual photograph of this property.
+        </p>
+      )}
 
       <div className="p-4">
         <h3 className="text-xl font-semibold">
@@ -34,12 +69,14 @@ export default function PropertyCard({
           <li>{property.squareFeet.toLocaleString()} sq. ft.</li>
         </ul>
 
-        <a
-          href={property.detailsUrl}
-          className="mt-4 inline-block rounded bg-blue-700 px-4 py-2 text-white hover:bg-blue-800 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-blue-300"
-        >
-          View details for {property.title}
-        </a>
+        {property.detailsUrl && (
+          <a
+            href={property.detailsUrl}
+            className="mt-4 inline-block rounded bg-blue-700 px-4 py-2 text-white hover:bg-blue-800 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-blue-300"
+          >
+            View details for {property.title}
+          </a>
+        )}
       </div>
     </article>
   );

@@ -8,7 +8,7 @@ export interface Property {
   squareFeet: number;
   imageUrl: string;
   imageAlt: string;
-  detailsUrl: string;
+  detailsUrl?: string;
 }
 
 export interface Sponsor {
@@ -17,3 +17,8 @@ export interface Sponsor {
   message: string;
   websiteUrl: string;
 }
+
+export type {
+  PropertyContract,
+  PropertySponsor,
+} from "./property-contract";
