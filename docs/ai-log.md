@@ -58,3 +58,75 @@ AI generated the initial diagram and SQL proposal. The design was reviewed step 
 - Fixed a database permission issue by granting the authenticated role table-level INSERT permission while retaining row-level security.
 - Verified that TypeScript checks and the production build pass. ESLint completes with one existing image-optimization warning in src/components/PropertyCard.tsx.
 - Test records used during verification are synthetic development data.
+
+## Lab 7 — Asset Optimization and Sponsor Content Review
+### Image Assets
+- Created three AI-generated fictional property illustrations for the class demonstration.
+- Converted the original PNG images into optimized WebP files.
+- Used Next.js Image with explicit dimensions and responsive sizes.
+- Added descriptive alt text and a visible disclaimer identifying the images as AI-generated illustrations.
+- Recorded asset information and approval in docs/lab7-asset-inventory.md.
+
+### Sponsor Content — AI Collaboration
+- Created a facts-only brief for the fictional sponsor, Sunshine Mortgage.
+- Used Google AI Studio to generate three promotional message options.
+- Used ChatGPT to review the messages for unsupported claims, discriminatory wording, guarantees, and artificial urgency.
+- Selected and approved the following message on November 19, 2026:
+  "Explore financing options for your next home with Sunshine Mortgage."
+
+- Stored the original AI-generated drafts separately from the approved application content.
+- Added the disclosure: "Fictional sponsor — demonstration content only."
+- Prevented the fictional sponsor's placeholder website URL from appearing as a clickable link.
+
+### Sponsor Content — Validation Tests
+Manually tested the sponsor content safeguards in the browser.
+1. Draft status: Changed approval status from approved to draft. The sponsor disappeared and the neighborhood information banner appeared. PASS.
+2. Expired content: Set an expiration date in the past. The sponsor disappeared and the fallback banner appeared. PASS.
+3. Message length: Entered a promotional message exceeding 120 characters. The sponsor disappeared and the fallback banner appeared. PASS.
+Restored the approved message, approval status, and original expiration setting after testing.
+
+### Verification and Limitations
+- npx tsc --noEmit completed without errors.
+- Confirmed that the approved sponsor message and fictional-content disclosure display correctly in the browser.
+- All sponsor information is fictional demonstration content, not a verified real-world advertisement.
+- Gemini's independent fidelity review and final image-performance measurements are still pending.
+
+### Lab 7 — Gemini Sponsor Content Fidelity Review
+
+- Tool: Google AI Studio (Gemini)
+- Purpose: Independently verify that three AI-generated promotional messages match the approved facts-only brief for the fictional sponsor Sunshine Mortgage.
+
+Results:
+- Message 1: Faithful to the approved facts. No corrections required.
+- Message 2: Faithful to the approved facts. No corrections required.
+- Message 3: Faithful to the approved facts. No corrections required.
+- Gemini identified no invented claims, guarantees, urgency, discriminatory wording, or misleading financial promises.
+- Gemini recommended clearly identifying the sponsor as fictional in the application interface.
+
+Decision:
+- Reviewed Gemini's findings against the sponsor brief.
+- Confirmed that the application already displays the fictional sponsor disclosure.
+- Retained Message 1 as the only approved promotional message.
+- Messages 2 and 3 remain unapproved alternatives.
+
+Conclusion: Both ChatGPT and Gemini completed their assigned reviews. No changes to the approved promotional message were necessary.
+
+### Lab 7 — Performance Verification
+Date: November 20, 2026
+
+- Successfully completed the Next.js production build.
+- Tested the production application at http://localhost:3001 using Chrome Lighthouse.
+- Production Lighthouse Performance score: 100/100.
+- Largest Contentful Paint (LCP): 0.5 seconds.
+- First Contentful Paint (FCP): 0.2 seconds.
+- Total Blocking Time (TBT): 0 milliseconds.
+- Cumulative Layout Shift (CLS): 0.
+- Total network payload: approximately 251 KiB.
+- Earlier development-server Lighthouse results: Performance 97/100, LCP 0.8 seconds, network payload approximately 916 KiB.
+- Converted three original PNG illustrations to optimized WebP files, reducing their combined file size by approximately 92.3%.
+- Lighthouse identified approximately 42 KiB of potential additional image-delivery savings.
+
+Limitations:
+- Development and production measurements are not directly equivalent.
+- The Lighthouse results are local, simulated measurements rather than real-user performance data.
+- No equivalent pre-optimization Lighthouse baseline was captured, so an exact before-and-after LCP improvement attributable to image optimization cannot be established.
